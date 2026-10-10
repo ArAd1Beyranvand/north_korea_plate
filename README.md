@@ -1,3 +1,13 @@
+FREE PALESTINE 🇮🇷🇵🇸 پاینده ایران
+
+GO VEGAN 🌱
+
+==================================
+
+From the mighty people of Iran to the resilient people of North Korea to view examples:
+
+https://platexample.ir/#/discover/north_korea
+
 # north_korea_plate
 
 North Korean licence plates for `plate_core`: the 1990s liveries on the
