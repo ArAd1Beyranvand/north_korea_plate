@@ -18,3 +18,9 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^6.0.0
+
+# South Korea's Euroband flag, from Wikimedia Commons
+# (File:Flag_of_South_Korea.svg); named with `package: 'north_korea_plate'`.
+flutter:
+  assets:
+    - assets/icons/flag_of_south_korea.svg

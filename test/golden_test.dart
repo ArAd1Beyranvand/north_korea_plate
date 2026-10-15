@@ -32,27 +32,27 @@ void main() {
       'private',
       KPPlates.regional,
       KPThemes.private,
-      ['평남', '6', '8', '3', '6', '6'],
+      ['평남', '68', '366'],
     ),
     (
       'government',
       KPPlates.regional,
       KPThemes.government,
-      ['함북', '3', '3', '9', '6', '8'],
+      ['함북', '33', '968'],
     ),
     (
       'diplomatic',
       KPPlates.diplomatic,
       KPThemes.diplomatic,
-      ['0', '7', '0', '1'],
+      ['07', '01'],
     ),
     (
       'military',
       KPPlates.military,
       KPThemes.military,
-      ['8', '6', '5', '6', '0', '7'],
+      ['865607'],
     ),
-    ('vip', KPPlates.vip, KPThemes.vip, ['3', '6', '0']),
+    ('vip', KPPlates.vip, KPThemes.vip, ['360']),
   ];
 
   for (final (name, spec, theme, values) in cases) {
@@ -94,13 +94,13 @@ void main() {
     final ok = v.judge(
       PlateEntry(
         spec: KPPlates.regional,
-        values: ['평양', '1', '5', '4', '2', '1'],
+        values: ['평양', '15', '421'],
       ),
     );
     final four = v.judge(
       PlateEntry(
         spec: KPPlates.regional,
-        values: ['평양', '4', '5', '4', '2', '1'],
+        values: ['평양', '45', '421'],
       ),
     );
     expect(ok.reason, isNull);

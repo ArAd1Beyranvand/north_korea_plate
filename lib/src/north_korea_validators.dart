@@ -14,8 +14,16 @@ class KPValidator extends GatedPlateValidator {
 
   @override
   PlateValidation judge(PlateEntry entry) {
-    if (entry.values.any((v) => v == null || v.isEmpty)) {
-      return const PlateValidation.invalid(reasonIncomplete);
+    for (var i = 0; i < entry.spec.slots.length; i++) {
+      final slot = entry.spec.slots[i];
+      final value = entry.values[i] ?? '';
+      // A chosen value (the region) is one symbol, however many characters.
+      final want = slot.alphabet.input == AlphabetInput.chosen
+          ? 1
+          : slot.length;
+      if (value.isEmpty || (want > 1 && value.length != want)) {
+        return const PlateValidation.invalid(reasonIncomplete);
+      }
     }
     if (entry.group('class').startsWith('4')) {
       return const PlateValidation.invalid(reasonFour);

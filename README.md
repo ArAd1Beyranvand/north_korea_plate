@@ -20,6 +20,13 @@ worldlicenseplates.com reference sheet.
 | `KPPlates.military` | ㄱ·865607 | `KPThemes.military` |
 | `KPPlates.vip` | ★-360 | `KPThemes.vip` (crimson frame) |
 
+## South Korea
+
+A region of this package, under `lib/src/south_korea/` (`SouthKoreaPlates`,
+`SouthKoreaThemes`, `SouthKoreaValidator`): private, commercial, military,
+diplomatic, US Forces and neon-green plates, one slot per field, with Hangul
+pickers from `SouthKoreaAlphabets`.
+
 ## Not shipped
 
 - The post-2016 liveries the article describes in words (blue state-owned,

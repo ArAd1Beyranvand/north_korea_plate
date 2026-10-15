@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/widgets.dart';
 import 'package:plate_core/plate_core.dart';
 
@@ -110,13 +112,11 @@ PlateSpec _plate({
         ),
       ),
     for (var g = 0; g < groups.length; g++)
-      ...plateRegister(
+      PlateSlot(
         alphabet: KPAlphabets.digits,
-        count: groups[g],
-        left: starts[g],
-        top: top,
-        width: _Layout.cell,
-        height: h,
+        box: PlateBox(starts[g], top, groups[g] * _Layout.cell, h),
+        length: groups[g],
+        spacing: max(0, _Layout.cell - 0.6 * 0.72 * h),
       ),
   ];
 
@@ -128,7 +128,7 @@ PlateSpec _plate({
   for (var g = 0; g < groups.length; g++) {
     textGroups.add(
       PlateTextGroup(
-        [for (var n = 0; n < groups[g]; n++) i++],
+        [i++],
         key: groupKeys[g],
         prefix: g > 0 ? separator : (leadSeparator ?? (prefixLabel ?? '')),
       ),
