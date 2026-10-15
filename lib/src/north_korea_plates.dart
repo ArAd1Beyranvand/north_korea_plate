@@ -5,6 +5,7 @@ import 'package:plate_core/plate_core.dart';
 
 import 'north_korea_alphabets.dart';
 import 'north_korea_country.dart';
+import 'north_korea_regions.dart';
 
 /// Where the ink sits, in plate coordinates.
 ///
@@ -173,6 +174,7 @@ PlateSpec _plate({
         ),
     ],
     textGroups: textGroups,
+    resolveRegion: NorthKoreaRegions.captionOf,
   );
 }
 
