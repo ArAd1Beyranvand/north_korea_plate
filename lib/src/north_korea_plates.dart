@@ -7,17 +7,10 @@ import 'north_korea_alphabets.dart';
 import 'north_korea_country.dart';
 import 'north_korea_regions.dart';
 
-/// Where the ink sits, in plate coordinates.
-///
-/// Measured off the eight plates of the worldlicenseplates.com 9/2013 sheet,
-/// each cropped to its plate rectangle and normalised to 440x140. Wikipedia
-/// gives no physical size, so the canvas is the median measured aspect ratio
-/// (3.16; the seven non-VIP plates range 2.88-3.86 because they are
-/// photographs at an angle) — an estimate, not a documented size.
-///
-/// Every plate is one design: a prefix on the left, then right-aligned digit
-/// groups at one pitch, joined by a separator. No strips, no dividers: the
-/// background is the plain field.
+/// Plate coordinates measured off the eight plates of the
+/// worldlicenseplates.com 9/2013 sheet, each normalised to 440x140. No
+/// physical size is documented, so the canvas is the median measured aspect
+/// ratio (3.16; the photographs are at an angle and range 2.88-3.86).
 ///
 /// Reference ink, all plates: digits ~100 tall centred at y~67; pitch 45-60
 /// (median ~52); hyphen centred x~255; region syllables ~45 wide each with the
@@ -178,7 +171,7 @@ PlateSpec _plate({
   );
 }
 
-/// North Korea's plates. Colour lives in `KPThemes`, never on a spec.
+/// Colour lives in `KPThemes`, never on a spec.
 abstract final class KPPlates {
   /// Region + 2 digits - 3 digits: private (amber) and government
   /// (aluminium) plates share it.

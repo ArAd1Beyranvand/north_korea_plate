@@ -6,11 +6,9 @@ import 'package:plate_core/plate_core.dart';
 
 import 'south_korea_country.dart';
 
-/// Where the ink sits, in plate coordinates (width 520 throughout).
-///
-/// Measured off the flats the offline stage cut from the article's photos
+/// Plate coordinates measured off the flats cut from the article's photos
 /// (`.plateref/kr`), each normalised to 520 wide. Canvas heights follow the
-/// plate's real aspect, not the article's 520x110 alone:
+/// plate's real aspect:
 /// - 335x155 (private, diplomatic, military): 240 (aspect 2.17)
 /// - 335x170 (commercial): 264 (aspect 1.97; the caption says 355x155 but
 ///   the photograph is 1.98, and the picture wins)
@@ -82,10 +80,8 @@ PlateSlot _field(
   );
 }
 
-PlatePanel _noPanelBox(double height) => PlatePanel(
-  box: PlateBox(0, 0, 0, height),
-  padding: EdgeInsets.zero,
-);
+PlatePanel _noPanelBox(double height) =>
+    PlatePanel(box: PlateBox(0, 0, 0, height), padding: EdgeInsets.zero);
 
 /// One-line plate: class digits, one Hangul syllable, four digits. Private,
 /// military and neon-green share it; they differ in canvas, boxes, the
@@ -113,10 +109,7 @@ PlateSpec _oneLine({
     background: bandEnd == null
         ? PlateSection.plain
         : PlateSection.columns(<PlatePart>[
-            PlatePart(
-              const PlateSection.fill(PlateFill.panel),
-              end: bandEnd,
-            ),
+            PlatePart(const PlateSection.fill(PlateFill.panel), end: bandEnd),
             const PlatePart(PlateSection.plain),
           ]),
     slots: <PlateSlot>[classSlot, letterSlot, serialSlot],
@@ -213,7 +206,11 @@ PlateSpec _diplomatic() {
     ],
     labels: const <PlateLabel>[
       PlateLabel(text: '외교', box: PlateBox(160, 0, 200, 100), glyphHeight: 100),
-      PlateLabel(text: '-', box: PlateBox(231, 100, 40.5, 126), glyphHeight: 126),
+      PlateLabel(
+        text: '-',
+        box: PlateBox(231, 100, 40.5, 126),
+        glyphHeight: 126,
+      ),
     ],
     textGroups: const <PlateTextGroup>[
       PlateTextGroup(<int>[0], key: 'class'),
@@ -264,7 +261,7 @@ PlateSpec _usForces() {
   );
 }
 
-/// South Korea's current plates. Colour lives in `SouthKoreaThemes`.
+/// Colour lives in `SouthKoreaThemes`.
 ///
 /// Not implemented: pre-2004 green plates (still on some cars), the
 /// 2004-2006 series, motorcycle, police and construction plates (the article

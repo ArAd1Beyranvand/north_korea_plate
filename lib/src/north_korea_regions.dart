@@ -1,5 +1,3 @@
-import 'package:plate_core/plate_core.dart';
-
 /// Locates a North Korean plate from its two-syllable region prefix.
 ///
 /// Source: the province tables (including the claimed provinces) of
@@ -28,10 +26,8 @@ abstract final class NorthKoreaRegions {
     '전북': 'North Chŏlla Province',
   };
 
-  /// The region of [prefix], or null when empty or not in the article.
   static String? lookup(String prefix) => _regions[prefix];
 
-  /// A [PlateLabelResolver] for [PlateSpec.resolveRegion].
   static String? captionOf(String Function(String key) group) =>
       lookup(group('region'));
 }
