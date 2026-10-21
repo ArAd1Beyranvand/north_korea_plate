@@ -1,11 +1,7 @@
 import 'package:plate_core/plate_core.dart';
 
-/// Advisory, never blocking. Judges each field of a South Korean plate:
-/// class digits (two or three on a passenger plate since September 2019, one
-/// to two on others), the Hangul syllable, and the serial.
-///
-/// Passenger class numbers run 01-69 (cars), 70-79 (vans), 80-97 (trucks) and
-/// 98-99 (special), and from 2019 100-699, 700-799, 800-997 and 998-999.
+/// Judges the class digits (two or three on a passenger plate since 2019, one
+/// to two on others), the Hangul syllable and the serial.
 class SouthKoreaValidator extends GatedPlateValidator {
   const SouthKoreaValidator();
 

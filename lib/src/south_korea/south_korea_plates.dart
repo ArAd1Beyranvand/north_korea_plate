@@ -261,8 +261,6 @@ PlateSpec _usForces() {
   );
 }
 
-/// Colour lives in `SouthKoreaThemes`.
-///
 /// Not implemented: pre-2004 green plates (still on some cars), the
 /// 2004-2006 series, motorcycle, police and construction plates (the article
 /// describes them but gives no picture to measure), and the temporary plate

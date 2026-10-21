@@ -7,14 +7,9 @@ import 'north_korea_alphabets.dart';
 import 'north_korea_country.dart';
 import 'north_korea_regions.dart';
 
-/// Plate coordinates measured off the eight plates of the
-/// worldlicenseplates.com 9/2013 sheet, each normalised to 440x140. No
-/// physical size is documented, so the canvas is the median measured aspect
-/// ratio (3.16; the photographs are at an angle and range 2.88-3.86).
-///
-/// Reference ink, all plates: digits ~100 tall centred at y~67; pitch 45-60
-/// (median ~52); hyphen centred x~255; region syllables ~45 wide each with the
-/// pair centred x 60-90.
+/// Coordinates measured off the eight plates of the worldlicenseplates.com
+/// 9/2013 sheet, normalised to 440x140. No physical size is documented, so the
+/// canvas is the median measured aspect ratio (3.16, range 2.88-3.86).
 abstract final class _Layout {
   static const double width = 440;
   static const double height = 140;
@@ -29,7 +24,6 @@ abstract final class _Layout {
   static const double digitTop = 0;
   static const double digitHeight = 120;
 
-  /// Measured median digit pitch.
   static const double cell = 52;
 
   /// Hyphen/dot run between groups. The reference gap is ~24 wider than a
@@ -55,11 +49,11 @@ abstract final class _Layout {
   static const double regionGlyph = 76;
 }
 
-/// One North Korean design. [prefixAlphabet] makes the prefix an editable slot
-/// (the region); otherwise [prefixLabel] prints it. [leadSeparator] goes
-/// between prefix and first group; [separator] between groups. A printed
-/// prefix is one glyph whose ink sits differently in its em box from font to
-/// font, so it takes its own [prefixGlyph] size and [prefixShift].
+/// [prefixAlphabet] makes the prefix an editable slot (the region); otherwise
+/// [prefixLabel] prints it. [leadSeparator] goes between prefix and first
+/// group; [separator] between groups. A printed prefix is one glyph whose ink
+/// sits differently in its em box from font to font, so it takes its own
+/// [prefixGlyph] size and [prefixShift].
 PlateSpec _plate({
   required String id,
   PlateAlphabet? prefixAlphabet,

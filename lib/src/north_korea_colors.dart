@@ -1,9 +1,8 @@
 import 'package:flutter/widgets.dart';
 
-/// North Korean plate colours, each the modal pixel of a region of the
-/// worldlicenseplates.com 9/2013 reference sheet — never an adjective from the
-/// article. The references are weathered photographs, so the government field
-/// is the aluminium as it is, not as it left the factory.
+/// Each colour is the modal pixel of a region of the worldlicenseplates.com
+/// 9/2013 reference sheet, never an adjective from the article. The sheet is
+/// weathered photographs, so the government field is the aluminium as found.
 abstract final class KPColors {
   /// Private field. The article says "yellow"; the pixels are a deep amber.
   static const Color amber = Color(0xFFD47C04);

@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 
-/// South Korean plate colours, each the modal pixel of a region of the flat
-/// the offline stage cut from the article's photographs — never an adjective.
+/// Each colour is the modal pixel of a region of the flats cut from the
+/// article's photographs, never an adjective.
 abstract final class SouthKoreaColors {
   static const Color white = Color(0xFFFFFFFF);
   static const Color black = Color(0xFF010101);
@@ -11,10 +11,8 @@ abstract final class SouthKoreaColors {
   static const Color commercial = Color(0xFFFFC913);
   static const Color commercialInk = Color(0xFF010100);
 
-  /// Diplomatic field: white on a deep blue.
   static const Color diplomatic = Color(0xFF003399);
 
-  /// US Forces field: an orange, not the commercial yellow.
   static const Color usForces = Color(0xFFFFA200);
 
   /// The 2024 luxury-car plate: a light lime. Its characters are embossed and

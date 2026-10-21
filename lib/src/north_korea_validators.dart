@@ -1,8 +1,7 @@
 import 'package:plate_core/plate_core.dart';
 
-/// Advisory, never blocking. Checks completeness, and flags the digit 4 as
-/// the leading class digit on regional plates: state-owned class prefixes run
-/// 1-7 and skip 4 (tetraphobia), per Wikipedia.
+/// Checks completeness, and flags 4 as the leading class digit on regional
+/// plates: class prefixes run 1-7 and skip 4.
 class KPValidator extends GatedPlateValidator {
   const KPValidator({this.gateGroup = 'number'});
 

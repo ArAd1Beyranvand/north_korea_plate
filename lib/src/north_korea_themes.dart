@@ -2,8 +2,8 @@ import 'package:plate_core/plate_core.dart';
 
 import 'north_korea_colors.dart';
 
-/// One theme per livery on the reference sheet. Frames are thin and corners
-/// near-square on every reference, so the ratios are shared.
+/// Frames are thin and corners near-square on every reference, so the ratios
+/// are shared.
 abstract final class KPThemes {
   static const double _border = 0.03;
   static const double _radius = 0.06;
