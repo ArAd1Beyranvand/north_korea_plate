@@ -28,30 +28,10 @@ void main() {
   });
 
   final cases = <(String, PlateSpec, PlateTheme, List<String?>)>[
-    (
-      'private',
-      KPPlates.regional,
-      KPThemes.private,
-      ['평남', '68', '366'],
-    ),
-    (
-      'government',
-      KPPlates.regional,
-      KPThemes.government,
-      ['함북', '33', '968'],
-    ),
-    (
-      'diplomatic',
-      KPPlates.diplomatic,
-      KPThemes.diplomatic,
-      ['07', '01'],
-    ),
-    (
-      'military',
-      KPPlates.military,
-      KPThemes.military,
-      ['865607'],
-    ),
+    ('private', KPPlates.regional, KPThemes.private, ['평남', '68', '366']),
+    ('government', KPPlates.regional, KPThemes.government, ['함북', '33', '968']),
+    ('diplomatic', KPPlates.diplomatic, KPThemes.diplomatic, ['07', '01']),
+    ('military', KPPlates.military, KPThemes.military, ['865607']),
     ('vip', KPPlates.vip, KPThemes.vip, ['360']),
   ];
 
@@ -80,10 +60,7 @@ void main() {
         ),
       );
       await tester.pumpAndSettle();
-      await expectLater(
-        find.byType(PlateView),
-        matchesGoldenFile('goldens/kp_$name.png'),
-      );
+      await expectLater(find.byType(PlateView), matchesGoldenFile('goldens/kp_$name.png'));
       await tester.pumpWidget(const SizedBox.shrink());
       controller.dispose();
     });
@@ -91,18 +68,8 @@ void main() {
 
   test('validator flags a class code starting with 4', () {
     const v = KPValidator();
-    final ok = v.judge(
-      PlateEntry(
-        spec: KPPlates.regional,
-        values: ['평양', '15', '421'],
-      ),
-    );
-    final four = v.judge(
-      PlateEntry(
-        spec: KPPlates.regional,
-        values: ['평양', '45', '421'],
-      ),
-    );
+    final ok = v.judge(PlateEntry(spec: KPPlates.regional, values: ['평양', '15', '421']));
+    final four = v.judge(PlateEntry(spec: KPPlates.regional, values: ['평양', '45', '421']));
     expect(ok.reason, isNull);
     expect(four.reason, KPValidator.reasonFour);
   });

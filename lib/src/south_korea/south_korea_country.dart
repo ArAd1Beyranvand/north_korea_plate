@@ -14,9 +14,6 @@ abstract final class SouthKoreaCountry {
     panelColor: SouthKoreaColors.euroband,
     panelTextColor: SouthKoreaColors.white,
     flagAspectRatio: 3 / 2,
-    flag: SvgPlateAsset(
-      'assets/icons/flag_of_south_korea.svg',
-      package: 'north_korea_plate',
-    ),
+    flag: SvgPlateAsset('assets/icons/flag_of_south_korea.svg', package: 'north_korea_plate'),
   );
 }

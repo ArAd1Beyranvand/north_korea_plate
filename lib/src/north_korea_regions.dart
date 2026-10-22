@@ -28,6 +28,5 @@ abstract final class NorthKoreaRegions {
 
   static String? lookup(String prefix) => _regions[prefix];
 
-  static String? captionOf(String Function(String key) group) =>
-      lookup(group('region'));
+  static String? captionOf(String Function(String key) group) => lookup(group('region'));
 }

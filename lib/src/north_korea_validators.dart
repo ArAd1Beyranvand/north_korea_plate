@@ -17,9 +17,7 @@ class KPValidator extends GatedPlateValidator {
       final slot = entry.spec.slots[i];
       final value = entry.values[i] ?? '';
       // A chosen value (the region) is one symbol, however many characters.
-      final want = slot.alphabet.input == AlphabetInput.chosen
-          ? 1
-          : slot.length;
+      final want = slot.alphabet.input == AlphabetInput.chosen ? 1 : slot.length;
       if (value.isEmpty || (want > 1 && value.length != want)) {
         return const PlateValidation.invalid(reasonIncomplete);
       }

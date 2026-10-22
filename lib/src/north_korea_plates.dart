@@ -81,12 +81,7 @@ PlateSpec _plate({
     }
   }
   final prefixRight = x < _Layout.prefixRight ? x : _Layout.prefixRight;
-  final prefixBox = PlateBox(
-    _Layout.prefixLeft,
-    top,
-    prefixRight - _Layout.prefixLeft,
-    h,
-  );
+  final prefixBox = PlateBox(_Layout.prefixLeft, top, prefixRight - _Layout.prefixLeft, h);
 
   final slots = <PlateSlot>[
     if (prefixAlphabet != null)
@@ -128,10 +123,7 @@ PlateSpec _plate({
     country: KPCountry.northKorea,
     canvasWidth: _Layout.width,
     canvasHeight: _Layout.height,
-    panel: const PlatePanel(
-      box: PlateBox(0, 0, 0, _Layout.height),
-      padding: EdgeInsets.zero,
-    ),
+    panel: const PlatePanel(box: PlateBox(0, 0, 0, _Layout.height), padding: EdgeInsets.zero),
     slots: slots,
     labels: <PlateLabel>[
       if (prefixLabel != null)
@@ -148,15 +140,8 @@ PlateSpec _plate({
       for (final (n, sx) in seps.indexed)
         PlateLabel(
           // seps runs right to left, so the last one is the lead separator.
-          text: leadSeparator != null && n == seps.length - 1
-              ? leadSeparator
-              : separator,
-          box: PlateBox(
-            sx,
-            top + _Layout.separatorDrop,
-            _Layout.separator,
-            _Layout.separatorGlyph,
-          ),
+          text: leadSeparator != null && n == seps.length - 1 ? leadSeparator : separator,
+          box: PlateBox(sx, top + _Layout.separatorDrop, _Layout.separator, _Layout.separatorGlyph),
           glyphHeight: _Layout.separatorGlyph,
         ),
     ],
@@ -213,10 +198,5 @@ abstract final class KPPlates {
     groupKeys: const ['serial'],
   );
 
-  static final List<PlateSpec> all = <PlateSpec>[
-    regional,
-    diplomatic,
-    military,
-    vip,
-  ];
+  static final List<PlateSpec> all = <PlateSpec>[regional, diplomatic, military, vip];
 }

@@ -10,10 +10,8 @@ class SouthKoreaValidator extends GatedPlateValidator {
 
   static const String reasonIncomplete = 'Every field must be filled.';
   static const String reasonClass = 'The class number is out of range.';
-  static const String reasonDiplomatic =
-      'A diplomatic plate is two groups of three digits.';
-  static const String reasonUsForces =
-      'A US Forces plate is one digit and four digits.';
+  static const String reasonDiplomatic = 'A diplomatic plate is two groups of three digits.';
+  static const String reasonUsForces = 'A US Forces plate is one digit and four digits.';
 
   @override
   PlateValidation judge(PlateEntry entry) {
@@ -40,10 +38,7 @@ class SouthKoreaValidator extends GatedPlateValidator {
       return const PlateValidation.invalid(reasonIncomplete);
     }
     final int digits = cls.length;
-    if (!isDigits(cls) ||
-        digits < 2 ||
-        digits > 3 ||
-        (digits == 3 && commercial)) {
+    if (!isDigits(cls) || digits < 2 || digits > 3 || (digits == 3 && commercial)) {
       return const PlateValidation.invalid(reasonClass);
     }
     return const PlateValidation.valid();

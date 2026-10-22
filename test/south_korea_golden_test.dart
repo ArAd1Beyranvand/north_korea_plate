@@ -29,22 +29,18 @@ void main() {
   /// per slot, i.e. per field — `'AB 1234'`, never `'A B 1 2 3 4'`)
   final Map<String, (PlateSpec, PlateTheme, String)> cases =
       <String, (PlateSpec, PlateTheme, String)>{
-    'private': (SouthKoreaPlates.private, SouthKoreaThemes.private, '12 가 3456'),
-    'commercial': (SouthKoreaPlates.commercial, SouthKoreaThemes.commercial, '서울 31 가 1234'),
-    'military': (SouthKoreaPlates.military, SouthKoreaThemes.military, '38 육 4104'),
-    'diplomatic': (SouthKoreaPlates.diplomatic, SouthKoreaThemes.diplomatic, '123 456'),
-    'us_forces': (SouthKoreaPlates.usForces, SouthKoreaThemes.usForces, '1 6047'),
-    'neon': (SouthKoreaPlates.neon, SouthKoreaThemes.neon, '177 호 1336'),
-  };
+        'private': (SouthKoreaPlates.private, SouthKoreaThemes.private, '12 가 3456'),
+        'commercial': (SouthKoreaPlates.commercial, SouthKoreaThemes.commercial, '서울 31 가 1234'),
+        'military': (SouthKoreaPlates.military, SouthKoreaThemes.military, '38 육 4104'),
+        'diplomatic': (SouthKoreaPlates.diplomatic, SouthKoreaThemes.diplomatic, '123 456'),
+        'us_forces': (SouthKoreaPlates.usForces, SouthKoreaThemes.usForces, '1 6047'),
+        'neon': (SouthKoreaPlates.neon, SouthKoreaThemes.neon, '177 호 1336'),
+      };
 
-  for (final MapEntry<String, (PlateSpec, PlateTheme, String)> c
-      in cases.entries) {
+  for (final MapEntry<String, (PlateSpec, PlateTheme, String)> c in cases.entries) {
     testWidgets(c.key, (tester) async {
       final (PlateSpec spec, PlateTheme theme, String values) = c.value;
-      final PlateController controller = PlateController.fromValues(
-        spec,
-        values.split(' '),
-      );
+      final PlateController controller = PlateController.fromValues(spec, values.split(' '));
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
@@ -66,10 +62,7 @@ void main() {
         ),
       );
       await tester.pumpAndSettle();
-      await expectLater(
-        find.byType(PlateView),
-        matchesGoldenFile('goldens/kr_${c.key}.png'),
-      );
+      await expectLater(find.byType(PlateView), matchesGoldenFile('goldens/kr_${c.key}.png'));
       await tester.pumpWidget(const SizedBox.shrink());
       controller.dispose();
     });

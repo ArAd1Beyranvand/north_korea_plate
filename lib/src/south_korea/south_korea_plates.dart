@@ -74,9 +74,7 @@ PlateSlot _field(
     box: PlateBox(left, top, right - left, height),
     length: length,
     minLength: minLength,
-    spacing: length > 1 && minLength == null
-        ? max(0, pitch - 0.6 * 0.72 * height)
-        : 0,
+    spacing: length > 1 && minLength == null ? max(0, pitch - 0.6 * 0.72 * height) : 0,
   );
 }
 
@@ -133,37 +131,11 @@ PlateSpec _commercial() {
     noPanel: true,
     slots: <PlateSlot>[
       // Row 1 ink y 16.8-79.5 (centre 48); a taller box would leave the plate.
-      _field(
-        SouthKoreaAlphabets.regions,
-        left: 114.8,
-        right: 249.8,
-        top: 0,
-        height: 96,
-      ),
-      _field(
-        SouthKoreaAlphabets.digits,
-        left: 281.2,
-        right: 348.5,
-        top: 0,
-        height: 96,
-        length: 2,
-      ),
+      _field(SouthKoreaAlphabets.regions, left: 114.8, right: 249.8, top: 0, height: 96),
+      _field(SouthKoreaAlphabets.digits, left: 281.2, right: 348.5, top: 0, height: 96, length: 2),
       // Row 2 ink y 98.8-209.2 (centre 154), 가 ink x 29-127.
-      _field(
-        SouthKoreaAlphabets.commercialLetters,
-        left: 29.2,
-        right: 126,
-        top: 77.5,
-        height: 172,
-      ),
-      _field(
-        SouthKoreaAlphabets.digits,
-        left: 163.2,
-        right: 465,
-        top: top2,
-        height: h2,
-        length: 4,
-      ),
+      _field(SouthKoreaAlphabets.commercialLetters, left: 29.2, right: 126, top: 77.5, height: 172),
+      _field(SouthKoreaAlphabets.digits, left: 163.2, right: 465, top: top2, height: h2, length: 4),
     ],
     textGroups: const <PlateTextGroup>[
       PlateTextGroup(<int>[0], key: 'region'),
@@ -187,30 +159,12 @@ PlateSpec _diplomatic() {
     panel: _noPanelBox(_Layout.rowsHeight),
     noPanel: true,
     slots: <PlateSlot>[
-      _field(
-        SouthKoreaAlphabets.digits,
-        left: 36.8,
-        right: 209.2,
-        top: top,
-        height: h,
-        length: 3,
-      ),
-      _field(
-        SouthKoreaAlphabets.digits,
-        left: 297,
-        right: 482,
-        top: top,
-        height: h,
-        length: 3,
-      ),
+      _field(SouthKoreaAlphabets.digits, left: 36.8, right: 209.2, top: top, height: h, length: 3),
+      _field(SouthKoreaAlphabets.digits, left: 297, right: 482, top: top, height: h, length: 3),
     ],
     labels: const <PlateLabel>[
       PlateLabel(text: '외교', box: PlateBox(160, 0, 200, 100), glyphHeight: 100),
-      PlateLabel(
-        text: '-',
-        box: PlateBox(231, 100, 40.5, 126),
-        glyphHeight: 126,
-      ),
+      PlateLabel(text: '-', box: PlateBox(231, 100, 40.5, 126), glyphHeight: 126),
     ],
     textGroups: const <PlateTextGroup>[
       PlateTextGroup(<int>[0], key: 'class'),
@@ -230,29 +184,12 @@ PlateSpec _usForces() {
     panel: _noPanelBox(_Layout.usForcesHeight),
     noPanel: true,
     slots: <PlateSlot>[
-      _field(
-        SouthKoreaAlphabets.digits,
-        left: 78.5,
-        right: 128,
-        top: 0,
-        height: 206,
-      ),
-      _field(
-        SouthKoreaAlphabets.digits,
-        left: 190,
-        right: 451.8,
-        top: 0,
-        height: 150,
-        length: 4,
-      ),
+      _field(SouthKoreaAlphabets.digits, left: 78.5, right: 128, top: 0, height: 206),
+      _field(SouthKoreaAlphabets.digits, left: 190, right: 451.8, top: 0, height: 150, length: 4),
     ],
     labels: const <PlateLabel>[
       PlateLabel(text: '-', box: PlateBox(128, 20, 62, 110), glyphHeight: 110),
-      PlateLabel(
-        text: 'US FORCES IN KOREA',
-        box: PlateBox(53, 168.5, 412, 43),
-        glyphHeight: 43,
-      ),
+      PlateLabel(text: 'US FORCES IN KOREA', box: PlateBox(53, 168.5, 412, 43), glyphHeight: 43),
     ],
     textGroups: const <PlateTextGroup>[
       PlateTextGroup(<int>[0], key: 'class'),
