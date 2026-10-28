@@ -60,7 +60,10 @@ void main() {
         ),
       );
       await tester.pumpAndSettle();
-      await expectLater(find.byType(PlateView), matchesGoldenFile('goldens/kp_$name.png'));
+      await expectLater(
+        find.byType(PlateView),
+        matchesGoldenFile('goldens/kp_$name.png'),
+      );
       await tester.pumpWidget(const SizedBox.shrink());
       controller.dispose();
     });
@@ -68,8 +71,12 @@ void main() {
 
   test('validator flags a class code starting with 4', () {
     const v = KPValidator();
-    final ok = v.judge(PlateEntry(spec: KPPlates.regional, values: ['평양', '15', '421']));
-    final four = v.judge(PlateEntry(spec: KPPlates.regional, values: ['평양', '45', '421']));
+    final ok = v.judge(
+      PlateEntry(spec: KPPlates.regional, values: ['평양', '15', '421']),
+    );
+    final four = v.judge(
+      PlateEntry(spec: KPPlates.regional, values: ['평양', '45', '421']),
+    );
     expect(ok.reason, isNull);
     expect(four.reason, KPValidator.reasonFour);
   });
