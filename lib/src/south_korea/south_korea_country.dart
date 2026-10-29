@@ -14,6 +14,9 @@ abstract final class SouthKoreaCountry {
     panelColor: SouthKoreaColors.euroband,
     panelTextColor: SouthKoreaColors.white,
     flagAspectRatio: 3 / 2,
+    // TODO(py): [H20][D6] flag asset by package + path; convert to PlateDrawing at export time.
+    // TODO(ts): [H20][D6] flag asset by package + path; convert to PlateDrawing at export time.
+    // TODO(kt): [H20][D6] flag asset by package + path; convert to PlateDrawing at export time.
     flag: SvgPlateAsset(
       'assets/icons/flag_of_south_korea.svg',
       package: 'north_korea_plate',

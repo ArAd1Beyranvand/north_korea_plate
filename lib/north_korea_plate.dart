@@ -1,3 +1,6 @@
+// TODO(py): [D5] one module `plates.countries.north_korea`; assets via importlib.resources.
+// TODO(ts): [D5] one subpath export `./countries/north_korea`; tree-shakable.
+// TODO(kt): [D5] package `countries.north_korea` in the countries module.
 export 'src/north_korea_alphabets.dart';
 export 'src/north_korea_colors.dart';
 export 'src/north_korea_country.dart';
