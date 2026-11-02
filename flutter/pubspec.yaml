@@ -1,7 +1,7 @@
 name: north_korea_plate
 description: "North Korea's licence plates for the plate_core library — the regional private and government series, diplomatic, military and VIP plates."
 version: 0.1.0
-repository: https://github.com/ArAd1Beyranvand/north_korea_plate
+repository: https://github.com/ArAd1Beyranvand/north_korea_plate/tree/main/flutter
 resolution: workspace
 
 environment:
