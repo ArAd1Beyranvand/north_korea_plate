@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/widgets.dart';
 import 'package:plate_alphabet/plate_alphabet.dart';
 import 'package:plate_core/plate_core.dart';
@@ -31,14 +29,11 @@ import 'south_korea_country.dart';
 abstract final class _Layout {
   static const double width = 520;
 
-  static const double rowsHeight = 240;
-  static const double commercialHeight = 264;
-  static const double usForcesHeight = 260;
-  static const double euroHeight = 110;
+  static const double rowsHeight = 240, commercialHeight = 264;
+  static const double usForcesHeight = 260, euroHeight = 110;
 
   /// Private/military digits row: reference ink y 105.2-214.2 (centre 160).
-  static const double digitsTop = 98.5;
-  static const double digitsHeight = 123;
+  static const double digitsTop = 98.5, digitsHeight = 123;
   static const double serialLeft = 276.8, serialRight = 489.8;
 
   /// Class field, 2 digits in the photo (ink x 20.8-113) and up to 3 since
@@ -75,7 +70,7 @@ PlateSlot _field(
     length: length,
     minLength: minLength,
     spacing: length > 1 && minLength == null
-        ? max(0, pitch - 0.6 * 0.72 * height)
+        ? plateRunSpacing(pitch, height)
         : 0,
   );
 }
@@ -113,11 +108,7 @@ PlateSpec _oneLine({
             const PlatePart(PlateSection.plain),
           ]),
     slots: <PlateSlot>[classSlot, letterSlot, serialSlot],
-    textGroups: const <PlateTextGroup>[
-      PlateTextGroup(<int>[0], key: 'class'),
-      PlateTextGroup(<int>[1], key: 'letter'),
-      PlateTextGroup(<int>[2], key: 'serial'),
-    ],
+    textGroups: PlateTextGroup.perSlot(<String>['class', 'letter', 'serial']),
   );
 }
 
@@ -165,12 +156,12 @@ PlateSpec _commercial() {
         length: 4,
       ),
     ],
-    textGroups: const <PlateTextGroup>[
-      PlateTextGroup(<int>[0], key: 'region'),
-      PlateTextGroup(<int>[1], key: 'class'),
-      PlateTextGroup(<int>[2], key: 'letter'),
-      PlateTextGroup(<int>[3], key: 'serial'),
-    ],
+    textGroups: PlateTextGroup.perSlot(<String>[
+      'region',
+      'class',
+      'letter',
+      'serial',
+    ]),
   );
 }
 

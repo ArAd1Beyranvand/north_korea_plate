@@ -1,10 +1,10 @@
 import 'dart:io';
 
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:north_korea_plate/north_korea_plate.dart';
 import 'package:plate_core/plate_core.dart';
+import 'package:plate_core/testing.dart';
 
 /// One golden per category on the reference sheet, rendered with real faces
 /// so the Hangul and the digit widths can be measured against it.
@@ -39,33 +39,14 @@ void main() {
     testWidgets(name, (tester) async {
       expect(debugValidateSpec(spec), isTrue);
       final controller = PlateController.fromValues(spec, values);
-      await tester.pumpWidget(
-        MaterialApp(
-          home: Scaffold(
-            body: Center(
-              child: SizedBox(
-                width: 520,
-                height: 520 * spec.canvasHeight / spec.canvasWidth,
-                child: PlateThemeScope(
-                  theme: theme,
-                  child: PlateView(
-                    controller: controller,
-                    theme: theme,
-                    country: KPCountry.northKorea,
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ),
+      await pumpPlateGolden(
+        tester,
+        controller,
+        'goldens/kp_$name.png',
+        theme: theme,
+        country: KPCountry.northKorea,
+        stage: Size(520, 520 * spec.canvasHeight / spec.canvasWidth),
       );
-      await tester.pumpAndSettle();
-      await expectLater(
-        find.byType(PlateView),
-        matchesGoldenFile('goldens/kp_$name.png'),
-      );
-      await tester.pumpWidget(const SizedBox.shrink());
-      controller.dispose();
     });
   }
 

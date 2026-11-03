@@ -5,8 +5,7 @@ import 'north_korea_colors.dart';
 /// Frames are thin and corners near-square on every reference, so the ratios
 /// are shared.
 abstract final class KPThemes {
-  static const double _border = 0.03;
-  static const double _radius = 0.06;
+  static const double _border = 0.03, _radius = 0.06;
 
   static const PlateTheme private = PlateTheme.monochrome(
     field: KPColors.amber,

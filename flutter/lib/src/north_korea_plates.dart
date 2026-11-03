@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/widgets.dart';
 import 'package:plate_core/plate_core.dart';
 
@@ -11,8 +9,7 @@ import 'north_korea_regions.dart';
 /// 9/2013 sheet, normalised to 440x140. No physical size is documented, so the
 /// canvas is the median measured aspect ratio (3.16, range 2.88-3.86).
 abstract final class _Layout {
-  static const double width = 440;
-  static const double height = 140;
+  static const double width = 440, height = 140;
 
   /// The digit box. Reference ink is ~100; a 120 box paints ~66 (the 0.72
   /// font ratio times a bold cap). Reaching 100 needs a ~180 box on a 140
@@ -21,8 +18,7 @@ abstract final class _Layout {
   ///
   /// The box sits at the top edge: Noto Sans CJK puts its ink low in the box,
   /// and at top 10 the row measured cy 76 against the reference's ~65.
-  static const double digitTop = 0;
-  static const double digitHeight = 120;
+  static const double digitTop = 0, digitHeight = 120;
 
   static const double cell = 52;
 
@@ -30,17 +26,14 @@ abstract final class _Layout {
   /// digit step; the rendered hyphen is ~29 wide at digit size, so it gets a
   /// 30 run and a smaller glyph, lowered onto the digits' centre line (labels
   /// are top-aligned in their box, and at digit top the hyphen sat ~15 high).
-  static const double separator = 30;
-  static const double separatorGlyph = 90;
-  static const double separatorDrop = 22;
+  static const double separator = 30, separatorGlyph = 90, separatorDrop = 22;
 
   /// Last digit's right edge (reference: 407-425).
   static const double right = 425;
 
   /// Prefix area: the region pair spans x 40-138 on the references (pair
   /// centre ~88). Starting at 12 put the rendered pair at 72; at 30, ~84.
-  static const double prefixLeft = 30;
-  static const double prefixRight = 132;
+  static const double prefixLeft = 30, prefixRight = 132;
 
   /// Two Hangul syllables at ~0.72 * glyphHeight each must fit the 120-wide
   /// prefix area, so the pair paints shorter (~50) than the reference (~100),
@@ -100,11 +93,13 @@ PlateSpec _plate({
         ),
       ),
     for (var g = 0; g < groups.length; g++)
-      PlateSlot(
-        alphabet: KPAlphabets.digits,
-        box: PlateBox(starts[g], top, groups[g] * _Layout.cell, h),
-        length: groups[g],
-        spacing: max(0, _Layout.cell - 0.6 * 0.72 * h),
+      plateRun(
+        KPAlphabets.digits,
+        groups[g],
+        left: starts[g],
+        top: top,
+        pitch: _Layout.cell,
+        height: h,
       ),
   ];
 

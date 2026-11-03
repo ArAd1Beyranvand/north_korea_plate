@@ -1,15 +1,9 @@
 import 'package:plate_core/plate_core.dart';
 
-// TODO(py): [D4-code] hand-port; reason strings are the contract, keep them byte-identical.
-// TODO(ts): [D4-code] hand-port; reason strings are the contract, keep them byte-identical.
-// TODO(kt): [D4-code] hand-port; reason strings are the contract, keep them byte-identical.
 /// Judges the class digits (two or three on a passenger plate since 2019, one
 /// to two on others), the Hangul syllable and the serial.
 class SouthKoreaValidator extends GatedPlateValidator {
-  const SouthKoreaValidator();
-
-  @override
-  String get gateGroup => 'serial';
+  const SouthKoreaValidator() : super('serial');
 
   static const String reasonIncomplete = 'Every field must be filled.';
   static const String reasonClass = 'The class number is out of range.';
@@ -20,10 +14,8 @@ class SouthKoreaValidator extends GatedPlateValidator {
 
   @override
   PlateValidation judge(PlateEntry entry) {
-    final String id = entry.spec.id;
-    final String cls = entry.group('class');
-    final String serial = entry.group('serial');
-    final String letter = entry.group('letter');
+    final String id = entry.spec.id, cls = entry.group('class');
+    final String serial = entry.group('serial'), letter = entry.group('letter');
 
     if (id == 'kr.diplomatic') {
       return isDigitsOfLength(cls, 3) && isDigitsOfLength(serial, 3)

@@ -5,8 +5,7 @@ import 'south_korea_colors.dart';
 /// One theme per livery. Frames are thin and corners near-square on every
 /// reference, so the ratios are shared.
 abstract final class SouthKoreaThemes {
-  static const double _border = 0.03;
-  static const double _radius = 0.06;
+  static const double _border = 0.03, _radius = 0.06;
 
   static const PlateTheme private = PlateTheme.monochrome(
     field: SouthKoreaColors.white,

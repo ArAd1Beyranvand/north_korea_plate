@@ -8,7 +8,6 @@ abstract final class KPCountry {
 
   static const PlateCountry northKorea = PlateCountry(
     code: 'kp',
-    captionLines: <String>[],
     panelColor: _transparent,
     panelTextColor: _transparent,
   );
