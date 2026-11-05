@@ -1,4 +1,4 @@
-import { GatedPlateValidator, type PlateEntry, type PlateValidation, invalid, isDigitsOfLength, isDigits, valid } from '../../core/validators/plate_validator';
+import { GatedPlateValidator, type PlateEntry, type PlateValidation, invalid, isDigitsOfLength, isDigits, valid } from 'plate_core/core/validators/plate_validator';
 
 /** Judges the class digits (two or three on a passenger plate since 2019, one
 to two on others), the Hangul syllable and the serial. */
